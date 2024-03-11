@@ -5,6 +5,7 @@ const defaultCartState = {
   items: [],
   cartItems: [],
   totalAmount: 0,
+  count: 0,
 };
 
 const cartReducer = (state, action) => {
@@ -38,6 +39,7 @@ const cartReducer = (state, action) => {
       ...state,
       cartItems: updatedCartItems,
       totalAmount: updatedTotalAmount,
+      count: state.count + 1,
     };
   }
 
@@ -87,6 +89,7 @@ const cartReducer = (state, action) => {
       cartItems: updatedItems,
       totalAmount: updatedTotalAmount,
       items: updatedItemsArray,
+      count: state.count - 1,
     };
   }
 
@@ -98,7 +101,7 @@ const cartReducer = (state, action) => {
     );
 
     const updatedItemsArray = state.items.map((item) => {
-      if (item.medicine === action.item.medicine) {
+      if (item.medicine === action.item.medicine && item.amount > 0) {
         return { ...item, amount: Number(item.amount) - 1 };
       }
       return item;
@@ -114,6 +117,7 @@ const cartReducer = (state, action) => {
       cartItems: updatedItems,
       totalAmount: updatedTotalAmount,
       items: updatedItemsArray,
+      count: state.count + 1,
     };
   }
 
@@ -150,6 +154,7 @@ const ProvideContext = (props) => {
     items: cartState.items,
     cartItems: cartState.cartItems,
     totalAmount: cartState.totalAmount,
+    count: cartState.count,
     addItem: addItemToCartHandler,
     storeItem: storeItemHandler,
     decreaseQuantity: decreaseQuantityHandler,

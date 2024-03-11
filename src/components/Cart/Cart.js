@@ -16,13 +16,21 @@ const Cart = (props) => {
   return (
     <Modal>
       <ul>
-        {ctx.cartItems.map((item, index) => (
-          <li key={index}>
-            {item.medicine} || Rs.{item.price} || Quantity: {item.amount}
-            <button onClick={() => addItem(item)}>+</button>
-            <button onClick={() => decreaseItem(item)}>-</button>
-          </li>
-        ))}
+        {ctx.cartItems.map((item, index) => {
+          const itemInItems = ctx.items.find(
+            (i) => i.medicine === item.medicine
+          );
+
+          return (
+            <li key={index}>
+              {item.medicine} || Rs.{item.price} || Quantity: {item.amount}
+              {itemInItems && itemInItems.amount > 0 && (
+                <button onClick={() => addItem(item)}>+</button>
+              )}
+              <button onClick={() => decreaseItem(item)}>-</button>
+            </li>
+          );
+        })}
       </ul>
       <div>
         <span>
