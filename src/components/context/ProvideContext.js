@@ -91,12 +91,6 @@ const cartReducer = (state, action) => {
   }
 
   if (action.type === "CARTINCREASE") {
-    const existingItemIndex = state.cartItems.findIndex(
-      (item) => item.medicine === action.item.medicine
-    );
-
-    const existingItem = state.cartItems[existingItemIndex];
-
     const updatedItems = state.cartItems.map((item) =>
       item.medicine === action.item.medicine
         ? { ...item, amount: Number(item.amount) + 1 }
