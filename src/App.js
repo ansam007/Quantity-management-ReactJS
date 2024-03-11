@@ -17,7 +17,6 @@ function App() {
   return (
     <ProvideContext>
       {showCart && <Cart onClose={hideCartHandler}></Cart>}
-      <header>
         <button
           style={{
             position: "absolute",
@@ -27,7 +26,6 @@ function App() {
         >
           Cart
         </button>
-      </header>
       <DataEntry></DataEntry>
     </ProvideContext>
   );

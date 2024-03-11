@@ -5,6 +5,14 @@ import Modal from "../Modal/Modal";
 const Cart = (props) => {
   const ctx = useContext(ContextProvider);
 
+  const addItem = (item) => {
+    ctx.cartIncrease(item);
+  }
+
+  const decreaseItem = (item) => {
+    ctx.cartDecrease(item);
+  }
+
   return (
     <Modal>
       <ul>
@@ -12,6 +20,8 @@ const Cart = (props) => {
           <li key={index}>
             {item.medicine} || Rs.{item.price} ||
             Quantity: {item.amount}
+            <button onClick={() => addItem(item)}>+</button>
+            <button onClick={() => decreaseItem(item)}>-</button>
           </li>
         ))}
       </ul>
