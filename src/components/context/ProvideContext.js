@@ -10,7 +10,25 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
   if (action.type === "STORE") {
-    return { ...state, items: [...state.items, action.item] };
+    const existingItemIndex = state.items.findIndex(
+      (item) => item.medicine === action.item.medicine
+    );
+
+    let updatedItems;
+
+    if (existingItemIndex !== -1) {
+      const existingItem = state.items[existingItemIndex];
+      const updatedItem = {
+        ...existingItem,
+        amount: Number(existingItem.amount) + Number(action.item.amount),
+      };
+      updatedItems = [...state.items];
+      updatedItems[existingItemIndex] = updatedItem;
+    } else {
+      updatedItems = [...state.items, action.item];
+    }
+
+    return { ...state, items: updatedItems };
   }
 
   if (action.type === "ADD") {
