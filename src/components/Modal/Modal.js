@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import classes from './Modal.module.css';
+import classes from "./Modal.module.css";
 
 const ModalOverlay = (props) => {
-    return (
-        <div className={classes["modal-overlay"]}>
-            <div className={classes["modal-content"]}>{props.children}</div>
-        </div>
-    );
+  return (
+    <div className={classes["modal-overlay"]}>
+      <div className={classes["modal-content"]}>{props.children}</div>
+    </div>
+  );
 };
 
 const Modal = (props) => {

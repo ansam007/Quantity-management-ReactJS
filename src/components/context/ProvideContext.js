@@ -16,7 +16,7 @@ const cartReducer = (state, action) => {
     const existingItem = state.cartItems.find(
       (item) => item.medicine === action.item.medicine
     );
-  
+
     let updatedCartItems;
 
     if (existingItem) {
@@ -26,24 +26,20 @@ const cartReducer = (state, action) => {
           : item
       );
     } else {
-      updatedCartItems = [
-        ...state.cartItems,
-        { ...action.item, amount: 1 },
-      ];
+      updatedCartItems = [...state.cartItems, { ...action.item, amount: 1 }];
     }
-  
+
     const updatedTotalAmount = updatedCartItems.reduce(
       (total, item) => total + item.price * item.amount,
       0
     );
-  
+
     return {
       ...state,
       cartItems: updatedCartItems,
       totalAmount: updatedTotalAmount,
     };
   }
-  
 
   if (action.type === "DECREASE") {
     const updatedItems = state.items.map((item) => {
@@ -94,8 +90,6 @@ const cartReducer = (state, action) => {
     };
   }
 
-
-
   if (action.type === "CARTINCREASE") {
     const existingItemIndex = state.cartItems.findIndex(
       (item) => item.medicine === action.item.medicine
@@ -105,14 +99,13 @@ const cartReducer = (state, action) => {
 
     const updatedItems = state.cartItems.map((item) =>
       item.medicine === action.item.medicine
-        ? { ...item, amount: Number(item.amount) + 1 } 
+        ? { ...item, amount: Number(item.amount) + 1 }
         : item
     );
 
-   
     const updatedItemsArray = state.items.map((item) => {
       if (item.medicine === action.item.medicine) {
-        return { ...item, amount: Number(item.amount) - 1 }; 
+        return { ...item, amount: Number(item.amount) - 1 };
       }
       return item;
     });
@@ -157,8 +150,7 @@ const ProvideContext = (props) => {
 
   const cartIncreaseHandler = (item) => {
     dispatchCartAction({ type: "CARTINCREASE", item: item });
-  }
-  
+  };
 
   const context = {
     items: cartState.items,

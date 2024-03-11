@@ -17,15 +17,15 @@ function App() {
   return (
     <ProvideContext>
       {showCart && <Cart onClose={hideCartHandler}></Cart>}
-        <button
-          style={{
-            position: "absolute",
-            right: 20,
-          }}
-          onClick={showCartHandler}
-        >
-          Cart
-        </button>
+      <button
+        style={{
+          position: "absolute",
+          right: 20,
+        }}
+        onClick={showCartHandler}
+      >
+        Cart
+      </button>
       <DataEntry></DataEntry>
     </ProvideContext>
   );
