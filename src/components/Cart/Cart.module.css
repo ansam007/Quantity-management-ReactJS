@@ -44,6 +44,15 @@
   margin-right: 5px;
 }
 
+.cart-modal .item-actions {
+  display: flex;
+  align-items: center;
+}
+
+.cart-modal .item-actions button {
+  margin-right: 10px; /* Add margin between buttons */
+}
+
 .cart-modal button {
   background-color: #4caf50;
   color: white;
@@ -55,7 +64,6 @@
   font-size: 14px;
   border-radius: 4px;
   cursor: pointer;
-  margin-left: 10px;
 }
 
 .cart-modal button:last-child {
@@ -71,4 +79,6 @@
   background-color: #ccc;
   color: #333;
 }
+
+
 

@@ -24,7 +24,7 @@ const Cart = (props) => {
            );
 
            return (
-             <li key={index}>
+             <li key={index} className={classes['cart-item']}>
                <div className={classes['item-details']}>
                  <span className={classes['item-name']}>{item.medicine}</span>
                  <div className={classes['item-info']}>
@@ -32,10 +32,12 @@ const Cart = (props) => {
                    <span>Quantity: {item.amount}</span>
                  </div>
                </div>
-               {itemInItems && itemInItems.amount > 0 && (
-                 <button onClick={() => addItem(item)} className={classes['cart-button']}>+</button>
-               )}
-               <button onClick={() => decreaseItem(item)} className={classes['cart-button']}>-</button>
+               <div className={classes['item-actions']}>
+                 {itemInItems && itemInItems.amount > 0 && (
+                   <button onClick={() => addItem(item)} className={classes['cart-button']}>+</button>
+                 )}
+                 <button onClick={() => decreaseItem(item)} className={classes['cart-button']}>-</button>
+               </div>
              </li>
            );
          })}
@@ -54,4 +56,5 @@ const Cart = (props) => {
 };
 
 export default Cart;
+
 
