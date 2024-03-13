@@ -1,0 +1,74 @@
+.cart-modal {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  max-width: 500px;
+  width: 90%;
+}
+
+.cart-modal ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.cart-modal li {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-modal .item-details {
+  display: flex;
+  align-items: center;
+}
+
+.cart-modal .item-name {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.cart-modal .item-info {
+  display: flex;
+}
+
+.cart-modal .item-info span {
+  background-color: #e6e6e6;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-right: 5px;
+}
+
+.cart-modal button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.cart-modal button:last-child {
+  background-color: #f44336;
+}
+
+.cart-modal .total {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.cart-modal .close-button {
+  background-color: #ccc;
+  color: #333;
+}
+

@@ -95,7 +95,7 @@ const cartReducer = (state, action) => {
       updatedItems[existingItemIndex] = updatedItem;
     }
 
-    const updatedItemsArray = state.items.map((item) => {
+    const updatedItemsArray = state.items.map((item) => { 
       if (item.medicine === action.item.medicine) {
         return { ...item, amount: item.amount + 1 };
       }

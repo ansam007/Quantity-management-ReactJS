@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import DataEntry from "./components/DataEntry/DataEntry";
 import Cart from "./components/Cart/Cart";
 import ContextProvider from "./components/context/create-context";
+import classes from './App.module.css';
 
 function App() {
   const [showCart, setShowCart] = useState(false);
@@ -17,19 +18,16 @@ function App() {
   };
 
   return (
-    <React.Fragment>
+    <div className={classes.app}>
       {showCart && <Cart onClose={hideCartHandler}></Cart>}
       <button
-        style={{
-          position: "absolute",
-          right: 20,
-        }}
+        className={classes["cart-button"]}
         onClick={showCartHandler}
       >
         Cart <span>{ctx.count}</span>
       </button>
       <DataEntry></DataEntry>
-    </React.Fragment>
+    </div>
   );
 }
 
